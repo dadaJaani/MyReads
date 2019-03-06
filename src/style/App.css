@@ -1,0 +1,422 @@
+
+@import url(https://fonts.googleapis.com/css?family=Rajdhani);
+
+html, body, .root {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Rajdhani';
+}
+body, .app {
+  background: #FFF4DE;
+  background-image: url("cloth.png");
+}
+
+/* main page */
+
+.list-books-title {
+  padding: 10px 0;
+  background-color: #092140;
+  background-image: url("jeans-cloth.png");
+  border-bottom: 3px dashed #FFF3DB;
+  box-shadow: 0 0 0 5px #092140;
+}
+
+.list-books-title h1 {
+  text-align: center;
+  font-size: 3em;
+  font-family: 'Rajdhani';
+  margin: 0;
+  color: white;
+}
+
+.list-books-content {
+  padding: 0 0 80px;
+  flex: 1;
+}
+
+.bookshelf {
+  padding: 0 10px 20px;
+  animation: fadeIn 2s ;
+  min-height: 438px;
+  font-family: 'Rajdhani';
+}
+
+@media (min-width: 600px) {
+  .bookshelf {
+    padding: 0 20px 40px;
+  }
+}
+
+
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+.bookshelf-title {
+  border: 2px dashed #FFF3DB;
+  border-radius: 10px;
+  color: #FFF3DB;
+  box-shadow: 0 0 0 2.5px #BF2A2A;
+  background-color: #BF2A2A;
+  background-image: url("dark-cloth.png");
+
+
+  padding: 10px;
+  text-align: center;
+  animation: fadeIn 2s ;
+}
+.bookshelf-books {
+  text-align: center;
+}
+
+.open-search {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+}
+
+.open-search a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #092140;
+  background-image: url('../icons/add.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  font-size: 0;
+}
+
+
+
+/* search page */
+
+.search-books-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
+}
+.search-books-input-wrapper {
+  flex: 1;
+  background: #e9e;
+
+}
+.search-books-bar input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 1.25em;
+  border: none;
+  outline: none;
+  font-family: 'Rajdhani';
+}
+
+.close-search {
+  display: block;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 56px;
+  background: white;
+  background-image: url('../icons/arrow-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+
+  font-size: 0;
+}
+
+.search-books-results {
+  padding: 80px 10px 20px;
+}
+
+/* Style the scrollbar */
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #092140;
+  box-shadow: 0 0 6px 10px #bbb;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #BF2A2A;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* books grid */
+
+/* Styling the scrollbar */
+.books-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.books-grid::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.books-grid::-webkit-scrollbar-thumb {
+  background-color: #BF2A2A;
+  border-radius: 15px;
+  width: 10px;
+}
+
+
+.books-grid {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  /*justify-content: center;*/
+  flex-direction: row;
+  flex-wrap: nowrap;
+  white-space: wrap;
+  overflow: auto;
+
+}
+.books-grid li {
+  padding: 10px 15px;
+  /*text-align: left;*/
+}
+
+.book {
+  width: 140px;
+  animation: fadeIn 1s ;
+  perspective: 1;
+}
+
+.book-title-and-authors {
+  height: 5em;
+  margin-top: 15px;
+}
+.book-title {
+  font-size: 0.8em;
+  text-align: center;
+  color: #092140;
+}
+.book-authors {
+  font-size: 0.7em;
+  margin-top: 5px;
+  color: #BF2A2A;
+  text-align: center;
+  font-style: italic;
+}
+
+
+
+.book-top {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+.book-top:hover{
+  transform: scale(1.1);
+}
+
+.book-shelf-changer {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #092140;
+  background-image: url('../icons/arrow-drop-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.book-shelf-changer select {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* book cover */
+
+.book-cover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: #eee;
+}
+.book-cover2 {
+  box-shadow: 0 0 10px #BF2A2A;
+}
+
+.book-cover-title {
+  padding: 20px 10px 0;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    margin-top: 5px;
+  }
+  50% {
+    margin-top: 0;
+  }
+  100% {
+    opacity: inherit;
+  }
+}
+
+ /*THIS SECTION IS FOR THE STARS RATING*/
+ /* The inspiration for the star rating has been taken from multiple tutorials,
+  especially from: https://codepen.io/jamesbarnett/pen/vlpkh */
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.stars {
+  border: none;
+  float: left;
+  font-family: FontAwesome;
+  height: 10px;
+  margin-left: -5px;
+}
+
+.starFull {
+  color: #bbb;
+  float: right;
+}
+.starHalf {
+  color: #bbb;
+  float: right;
+}
+
+.stars > label:before {
+  font-size: 1.2em;
+  padding: 2px;
+  content: "\f005";
+  display: inline-block;
+}
+
+.stars > .starHalf:before {
+  content: "\f089";
+  position: fixed;
+}
+
+.ratings-count {
+  font-size: 0.65em;
+  margin: 0 0 0 5px;
+  padding: 0.8em 0;
+  display: inline-block;
+  float: left;
+}
+
+/*THE BOTTOM TWO CLASSES ARE FOR THE MODAL BOX FOR BOOK PREVIEW*/
+.grey-background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  background: rgba(0, 0, 15, 0.75);
+}
+
+.book-preview {
+  font-family: 'Rajdhani';
+  width: 515px;
+  /*height: 356px;*/
+  padding: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: #fff;
+  box-shadow: 0 0 0 4px #FFF4DE;
+  border-width: 3px;
+  border-radius: 5px;
+  border-color: #F24738;
+  border-style: dotted;
+  background: #FFF4DE;
+  background-image: url("cloth.png");
+}
+.book-preview-title {
+  font-size: 1.5em;
+  width: 100%;
+  color: #BF2A2A;
+}
+
+.book-preview-subtitle {
+  width: 100%;
+  padding: 0 0 10px;
+  font-style: italic;
+  color: #888;
+}
+.book-preview-authors {
+  width: 100%;
+  display: inline;
+  padding: 0 0 10px;
+  font-style: normal;
+  color: #BF2A2A;
+}
+
+.book-preview-cover {
+  box-shadow: 0 0 5px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border: 1px solid  #F24738;;
+  background: #eee;
+  float: left;
+}
+
+.book-preview-infobox {
+  width: 68.6%;
+  font-size: 0.8em;
+  float: left;
+  padding: 0 0 0 20px;
+}
+.book-preview-description {
+  text-align: justify;
+  font-size: 0.75em;
+  font-style: italic;
+}
+.book-preview-category {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #F24738;
+}
+.book-preview-publisher {
+  margin-top: 2.5px;
+  font-size: 0.8em;
+}
+.book-preview-publish-date {
+  margin-top: 2.5px;
+  font-size: 0.8em;
+}
+.book-preview-ratings-count {
+  display: inline-block;
+  clear: both;
+  margin: 7px 0 0 5px;
+  font-size: 0.7em;
+}
+.book-preview-industry-identifier {
+  display: block;
+  clear: both;
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+.book-preview-link {
+  display: block;
+  margin-top: 10px;
+  color: #F24738;
+  font-style: italic;
+  text-decoration: none;
+}
